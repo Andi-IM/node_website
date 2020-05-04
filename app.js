@@ -62,6 +62,10 @@ app.get('/edit/:id', (req, res) => {
         });
 });
 
+app.post('/update/:id', (req, res) => {
+    res.redirect('/index');
+});
+
 connection.connect((err) => {
     if (err) {
         console.log('error connecting: '+ err.stack);
