@@ -38,7 +38,13 @@ app.post('/create', (req, res) => {
           res.redirect('/index');
         }
       );
-})
+});
+
+app.post('/delete/:id', (req, res) => {
+    console.log(req.params.id);
+    res.redirect('/index');
+});
+
 
 connection.connect((err) => {
     if (err) {
