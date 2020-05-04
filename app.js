@@ -66,6 +66,15 @@ app.post('/update/:id', (req, res) => {
     res.redirect('/index');
 });
 
+app.post('/update/:id', (req, res) => {
+    connection.query(
+        'UPDATE items SET name = ? WHERE id = ?',
+        [req.body.itemName, req.params.id],
+        (error, results) => {
+            res.redirect('/index');
+        }
+    );
+});
 connection.connect((err) => {
     if (err) {
         console.log('error connecting: '+ err.stack);
