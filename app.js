@@ -54,6 +54,14 @@ app.get('/edit/:id', (req, res) => {
     res.render('edit.ejs');
 });
 
+app.get('/edit/:id', (req, res) => {
+    connection.query(
+        'SELECT * FROM items WHERE id=?',
+        (error, results) => {
+            res.render('edit.ejs', {item: results[0]});
+        });
+});
+
 connection.connect((err) => {
     if (err) {
         console.log('error connecting: '+ err.stack);
