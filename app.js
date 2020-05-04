@@ -50,6 +50,9 @@ app.post('/delete/:id', (req, res) => {
     );
 });
 
+app.get('/edit/:id', (req, res) => {
+    res.render('edit.ejs');
+});
 
 connection.connect((err) => {
     if (err) {
